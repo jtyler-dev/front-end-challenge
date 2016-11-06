@@ -1,9 +1,15 @@
-<div class="product-container {custom_class}">
-  <a href="{url}">
-    <img src="{image}">
-    <div class="description">
-      <div class="title">{title}</div>
-      <div class="tagline">{tagline}</div>
+<div class="product col-xs-12 col-sm-4">
+    <div class="product-container flex-col {custom_class}">
+        
+        <a href="{url}">
+            <div class="img-container">
+                <img src="{image}">
+                <div class="prod-description-hover">{prod_description}</div>
+            </div>
+            <div class="product-description">
+                <div class="product-title">{title}</div>
+                <div class="product-tagline">{tagline}</div>
+            </div>
+        </a>
     </div>
-  </a>
 </div>

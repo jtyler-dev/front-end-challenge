@@ -1,13 +1,98 @@
+/* -- Common styles -- */
 body{font-family: "Arial"}
 a{text-decoration: none;}
 
-.product-container{width:300px; border:1px solid #aaa; margin:10px; display:inline-block;}
-.product-container img{width:100%; height:auto;}
-.row{width:946px;}
+/* -- styles for the header -- */
+#header {
+    text-align: center;
+    padding-bottom: 15px;
+}
 
-.col1{float:left;}
-.col2{margin:10px auto;}
-.col3{float:right;}
+#header > .title{font-size:36px;}
+#header > .tagline{font-size: 18px;}
 
-.title{font-size:20px;}
-.description{padding:10px;}
+/* -- styles for product -- */
+.product {padding-bottom: 15px;}
+
+.product-container{
+    border:1px solid #aaa;
+    position: relative;
+    overflow: hidden;
+ }
+
+.product-container > a {color: #0096ff;}
+
+.product-description {padding:10px;}
+.product-description  > .product-title {
+    font-size: 16px;
+    text-align: center;
+}
+.product-description > .product-tagline {
+    font-size: 16px;
+    text-align: center;
+}
+.img-container img{
+    width:100%;
+    height:auto;
+}
+
+/* css to handle the product description box*/
+.img-container:hover .prod-description-hover {
+    top: 0px;
+    left: 0px;
+	display: block !important;
+	color: white;
+	background: rgba(0,0,0,0.70);
+}
+
+/**
+ * css to handle animating the product description box to show up over
+ * the product when the user hovers over it
+ **/
+.img-container .prod-description-hover{
+	width: 100%;
+	height: 100%;
+    top: 100%;
+	position: absolute;
+	background: black;
+	color: rgba(255,255,255,1);
+	transition: all 0.6s ease-in-out;
+	-moz-transition: all 0.5s;
+
+    /*since some of the text is long, allow user to scroll though it*/
+    overflow: scroll;
+    padding: 15px;
+}
+
+/* -- css styles to fix some of the quicks with bootrap --*/
+/**
+ * Main goal of this code is to make sure the product boxes are all the same
+ * height when resizing the view
+ **/
+
+ .row-flex, .row-flex > div[class*='col-'] {
+     /*best practice when using flex box to include support for older browsers*/
+     display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+     display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+     display: -ms-flexbox;      /* TWEENER - IE 10 */
+     display: -webkit-flex;     /* NEW - Chrome */
+     display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+     flex:1 1 auto;
+ }
+
+ .row-flex-wrap {
+     -webkit-flex-flow: row wrap;
+     align-content: flex-start;
+     flex:0;
+ }
+
+ .row-flex > div[class*='col-'] div {
+ 	width:100%;
+ }
+
+ .flex-col {
+     display: flex;
+     display: -webkit-flex;
+     flex: 1 100%;
+ 	 flex-flow: column nowrap;
+ }

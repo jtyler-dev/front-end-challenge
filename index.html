@@ -1,18 +1,29 @@
 <html>
   <head>
+    <!-- Adding in standard metatags for a webpage -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Touch of Modern</title>
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    
+    <!-- Latest compiled and minified CSS from bootstraps cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+                           crossorigin="anonymous">
     <link href="style.css" media="screen" rel="stylesheet">
   </head>
 <body>
-  
-<div id="body container">
-  <h1 class="title">Welcome to Touch of Modern</h1>
-  <div class="tagline">Live beyond expectations</div>
-  <div id="content"></div>
+
+<div id="body-container" class="container">
+    <div id="header">
+        <h1 class="title">Welcome to Touch of Modern</h1>
+        <div class="tagline">Live beyond expectations</div>
+    </div>
+    <div id="content"></div>
 </div>
 
+<!-- Best practice to move all js files to the bottom of the page -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

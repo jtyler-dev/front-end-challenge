@@ -10,24 +10,26 @@ function domobj(){
         }
     });
   }
-    
+
   self.updateproducthtml = function(){
     for( i=0; i< self.products.length ; i++){
       self.products[i].updatehtml();
     }
   }
-  
+
   self.updatedom = function(){
-    var i=0
-    thishtml='';
+    var i=0;
+    thishtml="<div class='row row-flex row-flex-wrap'>";
     for( i=0; i< self.products.length ; i++){
-      if (i % 3 == 0 ){  thishtml += "<div class='row'>"; console.log("START") }
+    //   if (i % 3 == 0 ){  thishtml += "<div class='row'>"; console.log("START") }
+
       thishtml += self.products[i].htmlview;
-      if ((i % 3 == 2) || i == (self.products.length-1) ){thishtml += "</div>";console.log("FINISH")}
+    //   if ((i % 3 == 2) || i == (self.products.length-1) ){thishtml += "</div>";console.log("FINISH")}
     }
+    thishtml += "</div>"
     $("#content").append(thishtml)
   }
-  
+
 }
 
 function productobj(product, i){
@@ -39,10 +41,16 @@ function productobj(product, i){
   self.htmlview     = ""
   self.index        = i
   self.custom_class = "col"+ ((i % 3) +1)
-  
+  self.description  = product.description;
+
   self.updatehtml= function(){
     $.get('product-template.html', function(template){
-      self.htmlview = template.replace('{image}', self.photo).replace('{title}', self.title).replace('{tagline}', self.tagline).replace('{url}', self.url).replace('{custom_class}', self.custom_class);
+      self.htmlview = template.replace('{image}', self.photo)
+                    .replace('{title}', self.title)
+                    .replace('{tagline}', self.tagline)
+                    .replace('{url}', self.url)
+                    .replace('{custom_class}', self.custom_class)
+                    .replace('{prod_description}', self.description);
     });
   }
 }
@@ -51,4 +59,6 @@ function productobj(product, i){
 var page=new domobj();
 page.getproducts('data.json');
 setTimeout("console.log('building html');page.updateproducthtml();",20);
-setTimeout("page.updatedom()",50)
+// running in to a race condition here on loading the templated html and updating the domobj
+// this is just a stop gap
+setTimeout("page.updatedom()", 1000)
