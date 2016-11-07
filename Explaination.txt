@@ -1,0 +1,51 @@
+What I did in each file:
+
+style.css
+----------------------------------
+- Organized css file into sections so I could quickly find what I wanted.
+
+- Added comments for clarity and to explain what I was thinking using some of the stuff I used.
+
+- Ideally I would have wanted to include Sass into the project. Its a tool I have
+  used in the past and I like having the ability to split up my css into class like
+  files so I can reuse as much code as possible.
+
+product-template.html
+----------------------------------
+- Added doms for the close button and description hover.
+
+- Re-structured the dom to have logical grouping.
+
+- Renamed some of the classes so they are more descriptive about what they are styling.
+
+- Added classes for responsive ui.
+
+index.html
+----------------------------------
+- Added in standard set of meta-tags for browser compatibility.
+
+- Added in minified bootstrap from their cdn.
+
+- Shifted all javascript files to the bottom of the page for page loading speed and best practices.
+
+script.js
+----------------------------------
+- Added 'use strict' at top of file so the browser will used tougher pre-processing on the file
+  and for better error messaging.
+
+- Restructured the file to be a js module so we can avoid name space collisions.
+
+- Moved page init code into a $(document).ready() call, so we only start manipulating
+  the dom once the page is loaded.
+
+- Changed how we were handling getting the data json and the template html to use
+  promises instead of waiting on a timeout. This way we dont run into an issue where
+  the data hasnt finished loading and we go to process it. Using promises instead of
+  the timeout way allows us to only manipulate the data once we know we have successfully gotten it.
+
+- Saw that we were looping the product array multiple times, so I changed how we
+  process the product data. First we get the template, then we get our data, and
+  then once we start processing the json for a product we create the product html
+  and then add it to the product array instead of getting the data, looping though
+  and creating product objects, then get the template and then loop though the product
+  object array and generate the html.
