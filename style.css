@@ -12,7 +12,9 @@ a{text-decoration: none;}
 #header > .tagline{font-size: 18px;}
 
 /* -- styles for product -- */
-.product {padding-bottom: 15px;}
+.product {
+    padding-bottom: 15px;
+}
 
 .product-container{
     border:1px solid #aaa;
@@ -45,6 +47,38 @@ a{text-decoration: none;}
 	background: rgba(0,0,0,0.70);
 }
 
+.product-close-btn {
+    background: rgba(211,211,211,0.60);
+    color: rgba(255,255,255,0.60);
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    text-align: center;
+    cursor:pointer;
+}
+
+.product-close-btn:hover {
+    background: rgba(255,0,0,1);
+    color: rgba(255,255,255,1);
+}
+
+@media only screen and (min-width : 770px) {
+    .product-close-btn-pos {
+        margin: 3px;
+        left: 90%;
+        position: absolute;
+    }
+}
+
+@media only screen and (max-width : 768px) {
+    .product-close-btn-pos {
+        margin-top: 5px;
+        left: 95%;
+        position: absolute;
+
+    }
+}
+
 /**
  * css to handle animating the product description box to show up over
  * the product when the user hovers over it
@@ -64,7 +98,7 @@ a{text-decoration: none;}
     padding: 15px;
 }
 
-/* -- css styles to fix some of the quicks with bootrap --*/
+/* -- css styles to fix some of the quirks with bootrap --*/
 /**
  * Main goal of this code is to make sure the product boxes are all the same
  * height when resizing the view
@@ -77,7 +111,7 @@ a{text-decoration: none;}
      display: -ms-flexbox;      /* TWEENER - IE 10 */
      display: -webkit-flex;     /* NEW - Chrome */
      display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-     flex:1 1 auto;
+     flex:0 1 auto;
  }
 
  .row-flex-wrap {
@@ -93,6 +127,15 @@ a{text-decoration: none;}
  .flex-col {
      display: flex;
      display: -webkit-flex;
-     flex: 1 100%;
+     flex: 0 100%;
  	 flex-flow: column nowrap;
  }
+
+/** -- code for spinnder -- */
+.spinner{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
+}
